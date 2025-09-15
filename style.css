@@ -3,6 +3,64 @@ body {
   margin: 0;
   background-color: #fdf6e3;
   color: #333;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Container to hold the comment box on left and gallery on right */
+.container {
+  display: flex;
+  width: 100%;
+}
+
+/* Comment box styling */
+.comment-box {
+  width: 250px;
+  padding: 1rem;
+  background-color: #fff8e1;
+  border-right: 2px solid #8b0000;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.comment-box label {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.comment-box textarea {
+  resize: vertical;
+  min-height: 100px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-family: Arial, sans-serif;
+}
+
+.comment-box button {
+  background-color: #8b0000;
+  color: white;
+  border: none;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.comment-box button:hover {
+  background-color: #a00000;
+}
+
+/* The main content: header + gallery + footer */
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -10,6 +68,7 @@ header {
   padding: 2rem 1rem;
   background-color: #8b0000;
   color: white;
+  flex-shrink: 0;
 }
 
 header h1 {
@@ -22,6 +81,9 @@ header h1 {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   padding: 2rem;
+  flex-grow: 1;
+  background-color: #fdf6e3;
+  box-sizing: border-box;
 }
 
 .car-card {
@@ -31,6 +93,7 @@ header h1 {
   padding: 1rem;
   text-align: center;
   transition: transform 0.2s;
+  cursor: pointer;
 }
 
 .car-card:hover {
@@ -52,4 +115,18 @@ footer {
   padding: 1rem;
   background-color: #8b0000;
   color: white;
+  flex-shrink: 0;
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 700px) {
+  body, .container {
+    flex-direction: column;
+  }
+  .comment-box {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid #8b0000;
+  }
+}
 }
